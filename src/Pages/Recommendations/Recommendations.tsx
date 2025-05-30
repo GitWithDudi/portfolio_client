@@ -1,3 +1,5 @@
+import {getRecommendations} from '
+
 export function Recommendations() {
     return (
         <div>

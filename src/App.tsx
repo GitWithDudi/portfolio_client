@@ -13,7 +13,8 @@ import { Link, Outlet } from 'react-router-dom'
       <Link to="/">Home | </Link>
       <Link to="/projects">Projects | </Link>
       <Link to="/about">About | </Link>
-      <Link to="/recommendations">Recommendations</Link>
+      <Link to="/recommendations">Recommendations | </Link>
+      <Link to="/add-recommendation">Add Recommendation </Link>
 
     
       <Outlet />
