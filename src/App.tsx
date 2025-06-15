@@ -1,27 +1,20 @@
-import './App.css'
-import { Link, Outlet } from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom';
 
-
-
- export function App() {
-
+export function App() {
   return (
-    
+    <div>
+      <nav>
+        <Link to="/">Home</Link> |{" "}
+        <Link to="/about">About</Link> |{" "}
+        <Link to="/projects">Projects</Link> |{" "}
+        <Link to="/recommendations">Recommendations</Link> |{" "}
+        <Link to="/add-recommendation">Add Recommendation</Link>
+      </nav>
 
+      <hr />
 
-    <nav>
-      <Link to="/">Home | </Link>
-      <Link to="/projects">Projects | </Link>
-      <Link to="/about">About | </Link>
-      <Link to="/recommendations">Recommendations | </Link>
-      <Link to="/add-recommendation">Add Recommendation </Link>
-
-    
+      {/* כאן יוצגו הדפים */}
       <Outlet />
-    </nav>
-
-    
-  ) 
+    </div>
+  );
 }
-
-export default App

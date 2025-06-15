@@ -5,6 +5,7 @@ import { About } from './Pages/About/About'
 import { Projects } from './Pages/Projects/Projects'
 import { Recommendations } from './Pages/Recommendations/Recommendations'
 import { RecommendationForm } from './Pages/AddRecommendation/AddRecommendation.tsx'
+import { ProjectDetails } from './Pages/Project_details/Project_details.tsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import {App} from './App.tsx'
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: '/projects', element: <Projects /> },
       { path: '/recommendations', element: <Recommendations /> },
       {path: '/add-recommendation', element: <RecommendationForm />},
+      {path: '/project/:id', element: <ProjectDetails />},
     ],
   },
 ]);

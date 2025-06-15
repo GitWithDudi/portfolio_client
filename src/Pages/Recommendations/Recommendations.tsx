@@ -1,11 +1,8 @@
-import {getRecommendations} from '
-
-export function Recommendations() {
-    return (
-        <div>
-        <h1>
-            Recommendations
-        </h1>
-        </div>
-    )
+export function Recommendations(): React.JSX.Element {
+  return (
+    <div >
+      <h2>Recommendations</h2>
+      
+    </div>
+  );
 }

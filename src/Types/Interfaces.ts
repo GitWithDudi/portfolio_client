@@ -7,13 +7,14 @@ export interface Irecommend{
 }
 
 export interface Iproject{
-    name: string;
+    id?: number;
+    project_name: string;
     purpose: string;
     technologies: string[];
     description: string;
-    image: string;
-    link_git?: string;
-    link_docker?: string;
+    image_filename: string;
+    github_link?: string;
+    docker_link?: string;
     link?: string;
 }
 
