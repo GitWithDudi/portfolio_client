@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Iproject } from "../../Types/Interfaces";
 
+
 export function ProjectDetails(): React.JSX.Element {
   const { id } = useParams<{ id: string }>();
   const [project, setProject] = useState<Iproject | null>(null);
@@ -27,9 +28,11 @@ export function ProjectDetails(): React.JSX.Element {
   if (!project) return <p>Project not found</p>;
 
   return (
-    <div>
+    <div style={{ padding: "40px", maxWidth: "800px", paddingBottom: "80px"}}>
+      
       <h1>{project.project_name}</h1>
       <p><strong>Purpose:</strong> {project.purpose}</p>
+      <p><strong>Description:</strong> {project.description}</p>
       
       {project.github_link && (
         <p>
@@ -49,9 +52,18 @@ export function ProjectDetails(): React.JSX.Element {
         </p>
       )}
 
-      {project.technologies?.length > 0 && (
+      {project.technologies && project.technologies.length > 0 && (
         <p>
           <strong>Technologies:</strong> {project.technologies.join(", ")}
+        </p>
+      )}
+
+      {project.link && (
+        <p>
+          <strong>Live Link:</strong>{" "}
+          <a href={project.link} target="_blank" rel="noopener noreferrer">
+            {project.link}
+          </a>
         </p>
       )}
 

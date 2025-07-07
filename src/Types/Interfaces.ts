@@ -1,16 +1,21 @@
+import React from "react";
+
+
 export interface Irecommend{
+    id?: number;
     name: string;
     role: string;
     company: string;
-    date: string;
-    recommendation: string;
+    recommendation_date?: string;
+    recommendation_file_path?: string;
 }
 
 export interface Iproject{
     id?: number;
     project_name: string;
     purpose: string;
-    technologies: string[];
+    technologies?: string[];
+    tech_ids: number[];
     description: string;
     image_filename: string;
     github_link?: string;
@@ -19,6 +24,11 @@ export interface Iproject{
 }
 
 export interface Itechnology {
-    id: number;
+    id?: number;
     name: string;
   }
+
+
+  export interface ProtectedRouteProps {
+    children: React.JSX.Element;
+  } 
