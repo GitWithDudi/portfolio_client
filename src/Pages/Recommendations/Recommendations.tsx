@@ -91,12 +91,13 @@ export function Recommendations(): React.JSX.Element {
 
       <Grid container spacing={3}>
         {recommendations.map((rec) => (
-          <Grid item xs={12} sm={6} md={4} key={rec.id}>
+          <Grid item component="div" xs={12} sm={6} md={4} key={rec.id}>
             <Card
               sx={{
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
+                boxShadow: "0 0 15px #f97316",
               }}
             >
               <CardContent sx={{ flexGrow: 1 }}>
