@@ -164,7 +164,7 @@ export function Projects(): React.JSX.Element {
 
       <Grid container spacing={3}>
         {projects.map((project: Iproject) => (
-          <Grid item xs={12} sm={6} md={4} key={project.id}>
+          <Grid  key={project.id}>
             <ProjectsCard project={project} />
           </Grid>
         ))}

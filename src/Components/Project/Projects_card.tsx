@@ -43,6 +43,8 @@ export function ProjectsCard({ project }: { project: Iproject }): React.JSX.Elem
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        boxShadow: "0 0 15px #f97316",
+
       }}
     >
       <Link
