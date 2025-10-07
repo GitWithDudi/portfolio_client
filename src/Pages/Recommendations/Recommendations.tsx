@@ -91,7 +91,7 @@ export function Recommendations(): React.JSX.Element {
 
       <Grid container spacing={3}>
         {recommendations.map((rec) => (
-          <Grid item component="div" xs={12} sm={6} md={4} key={rec.id}>
+          <Grid >
             <Card
               sx={{
                 height: "100%",
