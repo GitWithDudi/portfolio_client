@@ -116,7 +116,7 @@ export function Home(): React.JSX.Element {
           <Grid  sx={{ pl: 10}}>
             <Box
               component="img"
-              src="src/assets/images/logo 1.webp"
+              src="src/assets/images/logo_1.webp"
               alt="logo"
               sx={{
                 width: "100%",
