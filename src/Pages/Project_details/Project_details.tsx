@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Iproject } from "../../Types/Interfaces";
+import { BASE_URL } from "../../Config";
+
 
 
 export function ProjectDetails(): React.JSX.Element {
@@ -12,7 +14,7 @@ export function ProjectDetails(): React.JSX.Element {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/project/${id}`)
+      .get(`${BASE_URL}/project/${id}`)
       .then((response) => {
         setProject(response.data);
         setLoading(false);
@@ -69,7 +71,7 @@ export function ProjectDetails(): React.JSX.Element {
 
       {project.image_filename && (
         <img
-          src={`http://localhost:5000/static/images/${project.image_filename}`}
+          src={`${BASE_URL}/static/images/${project.image_filename}`}
           alt={`${project.project_name} screenshot`}
           style={{ maxWidth: "100%", height: "auto" }}
         />

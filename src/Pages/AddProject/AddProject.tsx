@@ -93,6 +93,8 @@ import { Iproject, Itechnology } from "../../Types/Interfaces";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../Config";
+
 
 export function AddProject(): React.JSX.Element {
     const [project, setProject] = useState<Iproject>({
@@ -112,7 +114,7 @@ export function AddProject(): React.JSX.Element {
 
     useEffect(() => {
         const fetchTechnologies = async () => {
-            const res = await axios.get("http://localhost:5000/technologies");
+            const res = await axios.get(`${BASE_URL}/technologies`);
             setTechList(res.data);
         };
         fetchTechnologies();
@@ -154,7 +156,7 @@ export function AddProject(): React.JSX.Element {
             technologies: undefined // אופציונלי – אם צד השרת לא צריך את זה
         };
 
-        axios.post("http://localhost:5000/projects", payload)
+        axios.post(`${BASE_URL}/projects`, payload)
             .then((response) => {
                 console.log("Project added successfully:", response.data);
                 navigate("/projects");  // נתיב נכון בתוך האפליקציה

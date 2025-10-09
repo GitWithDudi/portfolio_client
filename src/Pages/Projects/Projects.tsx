@@ -81,6 +81,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Iproject } from "../../Types/Interfaces";
 import { ProjectsCard } from "../../Components/Project/Projects_card";
+import { BASE_URL } from "../../Config";
 import {
   Grid,
   FormControl,
@@ -100,7 +101,7 @@ export function Projects(): React.JSX.Element {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/projects")
+      .get(`${BASE_URL}/projects`)
       .then((response) => {
         setProjects(response.data);
         setLoading(false);
@@ -124,8 +125,8 @@ export function Projects(): React.JSX.Element {
 
     const url =
       tech === "All"
-        ? "http://localhost:5000/projects"
-        : `http://localhost:5000/projects/tech/${tech}`;
+        ? `${BASE_URL}/projects`
+        : `${BASE_URL}/projects/tech/${tech}`;
 
     axios
       .get(url)
