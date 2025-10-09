@@ -87,7 +87,7 @@ export function Home(): React.JSX.Element {
   return (
     <Box sx={{ padding: 4, paddingTop: "80px", paddingBottom: "80px" }}>
       {/* Section ראשי */}
-      <Box sx={{ pl: 20}}>
+      <Box sx={{ pl: 20 }}>
         <Grid container spacing={4} alignItems="center">
           <Grid>
             <Typography variant="h3" fontWeight="bold" gutterBottom>
@@ -113,10 +113,10 @@ export function Home(): React.JSX.Element {
             </Box>
           </Grid>
 
-          <Grid  sx={{ pl: 10}}>
+          <Grid sx={{ pl: 10 }}>
             <Box
               component="img"
-              src="src/assets/images/logo_1.webp"
+              src="/images/logo_1.webp"
               alt="logo"
               sx={{
                 width: "100%",
