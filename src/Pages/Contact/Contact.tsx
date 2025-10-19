@@ -1,6 +1,6 @@
 export function Contact(): React.JSX.Element {
   return (
-    <div>
+    <div style={{ padding: "25px" }}>
       <h1>Contact me</h1>
       <p>
         If you have any questions or would like to get in touch, please feel free to reach out via email at{" "}
