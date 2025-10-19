@@ -3,23 +3,96 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  background-color: #1976d2; /* כחול של MUI */
+  background-color: #1976d2;
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center;  /* מרכזים את התוכן אופקית */
-  gap: 16px; /* רווח בין הקישורים */
+  justify-content: center; /* מרכז את הקישורים אופקית במחשב */
+  padding: 0 20px;
+  height: 60px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
 
-.navbar a {
+/* קישורים */
+.links {
+  display: flex;
+  gap: 16px;
+}
+
+.links a {
   color: white;
   text-decoration: none;
   font-weight: bold;
 }
 
-.navbar a:hover {
+.links a:hover {
   text-decoration: underline;
+}
+
+/* המבורגר מוסתר כברירת מחדל */
+.hamburger,
+.nav-toggle {
+  display: none;
+}
+
+/* ריספונסיביות למובייל */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    left: -9999px; /* מוסתר מהמסך */
+  }
+
+  .links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #1976d2;
+    padding: 10px 0;
+  }
+
+  .nav-toggle:checked + .hamburger + .links {
+    display: flex;
+  }
+
+  .links a {
+    padding: 10px 20px;
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 8px 20px;
+  }
+}
+
+/* במחשב – מרכז את הקישורים כמו שהיה */
+@media (min-width: 769px) {
+  .links {
+    display: flex !important;
+    flex-direction: row;
+  }
+
+  .navbar {
+    flex-direction: row;
+    height: 60px;
+    align-items: center;
+    justify-content: center; /* המרכזה אופקית */
+  }
+
+  .hamburger {
+    display: none;
+  }
 }
