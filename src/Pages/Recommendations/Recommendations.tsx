@@ -51,6 +51,7 @@
 import { Irecommend } from '../../Types/Interfaces';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../../Config";
 import {
   Grid,
   Card,
@@ -68,7 +69,7 @@ export function Recommendations(): React.JSX.Element {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/recommendations")
+      .get(`${BASE_URL}/recommendations`)
       .then((response) => {
         setRecommendations(response.data);
         setLoading(false);
@@ -91,7 +92,7 @@ export function Recommendations(): React.JSX.Element {
 
       <Grid container spacing={3}>
         {recommendations.map((rec) => (
-          <Grid item component="div" xs={12} sm={6} md={4} key={rec.id}>
+          <Grid >
             <Card
               sx={{
                 height: "100%",
@@ -150,7 +151,7 @@ export function Recommendations(): React.JSX.Element {
                 <Button
                   size="small"
                   variant="outlined"
-                  href={`http://localhost:5000/${rec.recommendation_file_path}`}
+                  href={`${BASE_URL}/${rec.recommendation_file_path}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

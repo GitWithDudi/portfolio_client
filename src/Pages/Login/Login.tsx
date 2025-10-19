@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import { BASE_URL } from "../../Config";
+
 
 export function Login(): React.JSX.Element {
   const navigate = useNavigate();
@@ -14,7 +16,7 @@ export function Login(): React.JSX.Element {
     const password = (form.elements.namedItem("password") as HTMLInputElement).value;
 
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post(`${BASE_URL}/login`, {
         username,
         password,
       });

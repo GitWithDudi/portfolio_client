@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../../Config";
+
 
 export function AddRecommendation() {
   const [formData, setFormData] = useState({
@@ -38,7 +40,7 @@ export function AddRecommendation() {
     }
 
     try {
-      await axios.post("http://localhost:5000/recommendations", data);
+      await axios.post(`${BASE_URL}/recommendations`, data);
       alert("Recommendation uploaded successfully!");
 
       setFormData({

@@ -29,6 +29,8 @@
 
 import { Link } from "react-router-dom";
 import { Iproject } from "../../Types/Interfaces";
+import { BASE_URL } from "../../Config";
+
 import {
   Card,
   CardContent,
@@ -61,7 +63,7 @@ export function ProjectsCard({ project }: { project: Iproject }): React.JSX.Elem
           <CardMedia
             component="img"
             height="140"
-            image={`http://localhost:5000/static/images/${project.image_filename}`}
+            image={`${BASE_URL}/static/images/${project.image_filename}`}
             alt={`${project.project_name} screenshot`}
           />
         )}
