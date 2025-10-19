@@ -20,7 +20,7 @@
 //        src={`http://localhost:5000/static/images/${project.image_filename}`} 
 //        alt={`${project.project_name} screenshot`} 
 //      />
-     
+
 //       )}
 //     </Link>
 //   );
@@ -42,11 +42,12 @@ export function ProjectsCard({ project }: { project: Iproject }): React.JSX.Elem
   return (
     <Card
       sx={{
-        height: "100%",
+        width: 300,      
+        height: 300,
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
         boxShadow: "0 0 15px #f97316",
-
       }}
     >
       <Link

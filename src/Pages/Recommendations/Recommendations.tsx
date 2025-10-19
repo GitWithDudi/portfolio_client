@@ -60,7 +60,7 @@ import {
   Button,
   Box,
   CardActions,
-} from "@mui/material";  
+} from "@mui/material";
 
 export function Recommendations(): React.JSX.Element {
   const [recommendations, setRecommendations] = useState<Irecommend[]>([]);
@@ -95,9 +95,11 @@ export function Recommendations(): React.JSX.Element {
           <Grid >
             <Card
               sx={{
-                height: "100%",
+                width: 300,         
+                height: 300,      
                 display: "flex",
                 flexDirection: "column",
+                justifyContent: "space-between",
                 boxShadow: "0 0 15px #f97316",
               }}
             >
