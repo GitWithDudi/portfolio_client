@@ -6,12 +6,12 @@
   left: 0;
   width: 100%;
   height: 45px;
-  background-color: #1976d2; /* כחול של MUI */
+  background-color: #1976d2; 
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center;  /* מרכזים את התוכן אופקית */
-  gap: 14px; /* רווח בין הקישורים */
+  justify-content: center;  
+  gap: 14px; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }

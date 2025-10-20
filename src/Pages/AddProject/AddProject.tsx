@@ -95,153 +95,168 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../Config";
 
-
 export function AddProject(): React.JSX.Element {
-    const [project, setProject] = useState<Iproject>({
-        
-        project_name: "",
-        purpose: "",
-        technologies: [],
-        tech_ids: [],
-        description: "",
-        image_filename: "",
-        github_link: "",
-        docker_link: "",
-        link: ""
+  const [project, setProject] = useState<Iproject>({
+    project_name: "",
+    purpose: "",
+    technologies: [],
+    tech_ids: [],
+    description: "",
+    image_filename: "",
+    github_link: "",
+    docker_link: "",
+    link: "",
+  });
+
+  const [techList, setTechList] = useState<Itechnology[]>([]);
+  const [file, setFile] = useState<File | null>(null);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchTechnologies = async () => {
+      const res = await axios.get(`${BASE_URL}/technologies`);
+      setTechList(res.data);
+    };
+    fetchTechnologies();
+  }, []);
+
+  // ניהול שינוי שדות טקסט
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setProject((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // ניהול טכנולוגיות
+  const handleTechToggle = (techName: string) => {
+    const currentTechnologies = project.technologies || [];
+    const isSelected = currentTechnologies.includes(techName);
+
+    const updatedTechnologies = isSelected
+      ? currentTechnologies.filter((t) => t !== techName)
+      : [...currentTechnologies, techName];
+
+    const updatedTechIds = techList
+      .filter((t) => updatedTechnologies.includes(t.name))
+      .map((t) => t.id)
+      .filter((id): id is number => id !== undefined);
+
+    setProject({
+      ...project,
+      technologies: updatedTechnologies,
+      tech_ids: updatedTechIds,
     });
+  };
 
-    const [techList, setTechList] = useState<Itechnology[]>([]);
+  // ניהול בחירת קובץ
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setFile(e.target.files[0]);
+    }
+  };
 
-    useEffect(() => {
-        const fetchTechnologies = async () => {
-            const res = await axios.get(`${BASE_URL}/technologies`);
-            setTechList(res.data);
-        };
-        fetchTechnologies();
-    }, []);
+  // העלאת תמונה ל-R2 דרך Flask
+  const handleFileUpload = async () => {
+    if (!file) return;
+    const formData = new FormData();
+    formData.append("file", file);
 
-    const navigate = useNavigate();
+    try {
+      const res = await axios.post(`${BASE_URL}/upload`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      setProject((prev) => ({ ...prev, image_filename: res.data.url }));
+    } catch (err) {
+      console.error("Upload failed:", err);
+    }
+  };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setProject((prev) => ({ ...prev, [name]: value }));
-    };
+  // שליחת הפרויקט עם ה-URL של התמונה
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await axios.post(`${BASE_URL}/projects`, project);
+      navigate("/projects");
+    } catch (err) {
+      console.error("Error adding project:", err);
+    }
+  };
 
-    const handleTechToggle = (techName: string) => {
-        const currentTechnologies = project.technologies || [];
-        const isSelected = currentTechnologies.includes(techName);
+  return (
+    <form onSubmit={handleSubmit}>
+      <h1>Add Project</h1>
 
-        const updatedTechnologies = isSelected
-            ? currentTechnologies.filter((t) => t !== techName)
-            : [...currentTechnologies, techName];
+      <input
+        type="text"
+        name="project_name"
+        placeholder="Project Name"
+        value={project.project_name}
+        onChange={handleChange}
+        required
+      />
+      <input
+        type="text"
+        name="purpose"
+        placeholder="Purpose"
+        value={project.purpose}
+        onChange={handleChange}
+        required
+      />
 
-        const updatedTechIds = techList
-            .filter((t) => updatedTechnologies.includes(t.name))
-            .map((t) => t.id)
-            .filter((id): id is number => id !== undefined);
-
-        setProject({
-            ...project,
-            technologies: updatedTechnologies,
-            tech_ids: updatedTechIds
-        });
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-
-        const payload: Iproject = {
-            ...project,
-            // שלח רק את מה שצריך לפי צד השרת
-            technologies: undefined // אופציונלי – אם צד השרת לא צריך את זה
-        };
-
-        axios.post(`${BASE_URL}/projects`, payload)
-            .then((response) => {
-                console.log("Project added successfully:", response.data);
-                navigate("/projects");  // נתיב נכון בתוך האפליקציה
-            })
-            .catch((error) => {
-                console.error("There was an error adding the project:", error);
-            });
-    };
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <h1>Add Project</h1>
-
+      <label>Technologies:</label>
+      <div>
+        {techList.map((tech) => (
+          <label key={tech.id}>
             <input
-                type="text"
-                name="project_name"
-                placeholder="Project Name"
-                value={project.project_name}
-                onChange={handleChange}
-                required
+              type="checkbox"
+              checked={project.technologies?.includes(tech.name) ?? false}
+              onChange={() => handleTechToggle(tech.name)}
             />
+            {tech.name}
+          </label>
+        ))}
+      </div>
 
-            <input
-                type="text"
-                name="purpose"
-                placeholder="Purpose"
-                value={project.purpose}
-                onChange={handleChange}
-                required
-            />
+      {/* Upload Image */}
+      <input type="file" onChange={handleFileChange} />
+      <button type="button" onClick={handleFileUpload}>Upload Image</button>
+      {project.image_filename && (
+        <div>
+          <p>Uploaded Image:</p>
+          <img src={project.image_filename} alt="Project" style={{ maxWidth: "200px" }} />
+        </div>
+      )}
 
-            <label>Technologies:</label>
-            <div>
-                {techList.map((tech) => (
-                    <label key={tech.id}>
-                        <input
-                            type="checkbox"
-                            checked={project.technologies?.includes(tech.name) ?? false}
-                            onChange={() => handleTechToggle(tech.name)}
-                        />
-                        {tech.name}
-                    </label>
-                ))}
-            </div>
-            <input
-                type="text"
-                name="image_filename"
-                placeholder="Image URL"
-                value={project.image_filename}
-                onChange={handleChange}
-            />
+      <input
+        type="text"
+        name="github_link"
+        placeholder="GitHub Link"
+        value={project.github_link || ""}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        name="docker_link"
+        placeholder="Docker Link"
+        value={project.docker_link || ""}
+        onChange={handleChange}
+      />
+      <textarea
+        name="description"
+        placeholder="Description"
+        value={project.description}
+        onChange={handleChange}
+        required
+      />
+      <input
+        type="text"
+        name="link"
+        placeholder="Project Link"
+        value={project.link || ""}
+        onChange={handleChange}
+      />
 
-            
-
-            <input
-                type="text"
-                name="github_link"
-                placeholder="GitHub Link"
-                value={project.github_link || ""}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="docker_link"
-                placeholder="Docker Link"
-                value={project.docker_link || ""}
-                onChange={handleChange}
-            />
-            <textarea
-                name="description"
-                placeholder="Description"
-                value={project.description}
-                onChange={handleChange}
-                required
-            ></textarea>
-           
-            <input
-                type="text"
-                name="link"
-                placeholder="Project Link"
-                value={project.link || ""}
-                onChange={handleChange}
-            />
-
-            <button type="submit">Add Project</button>
-        </form>
-    );
+      <button type="submit">Add Project</button>
+    </form>
+  );
 }
