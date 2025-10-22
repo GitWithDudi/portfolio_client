@@ -66,8 +66,8 @@ export function ProjectsCard({ project }: { project: Iproject }): React.JSX.Elem
             height="140"
             image={
               project.image_filename.startsWith("http")
-                ? project.image_filename
-                : `${BASE_URL}/static/images/${project.image_filename}`
+                ? project.image_filename                     // תמונה חדשה מה‑R2
+                : `${BASE_URL}/static/images/${project.image_filename}` // תמונה ישנה
             }
             alt={`${project.project_name} screenshot`}
           />
