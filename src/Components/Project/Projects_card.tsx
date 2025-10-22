@@ -29,7 +29,7 @@
 
 import { Link } from "react-router-dom";
 import { Iproject } from "../../Types/Interfaces";
-import { BASE_URL } from "../../Config";
+// import { BASE_URL } from "../../Config";
 
 import {
   Card,
@@ -42,7 +42,7 @@ export function ProjectsCard({ project }: { project: Iproject }): React.JSX.Elem
   return (
     <Card
       sx={{
-        width: 300,      
+        width: 300,
         height: 300,
         display: "flex",
         flexDirection: "column",
@@ -64,10 +64,11 @@ export function ProjectsCard({ project }: { project: Iproject }): React.JSX.Elem
           <CardMedia
             component="img"
             height="140"
-            image={`${BASE_URL}/static/images/${project.image_filename}`}
+            image={project.image_filename}
             alt={`${project.project_name} screenshot`}
           />
         )}
+
 
         <CardContent sx={{ flexGrow: 1 }}>
           <Typography
