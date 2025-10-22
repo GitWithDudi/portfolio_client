@@ -174,8 +174,18 @@ export function AddProject(): React.JSX.Element {
     // שליחת הפרויקט עם ה-URL של התמונה
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
         try {
-            await axios.post(`${BASE_URL}/projects`, project);
+            await axios.post(
+                `${BASE_URL}/projects`,
+                project,
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    },
+                }
+            );
+
             navigate("/projects");
         } catch (err) {
             console.error("Error adding project:", err);
