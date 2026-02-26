@@ -1,0 +1,68 @@
+/* ===========================================
+   ADD RECOMMENDATION PAGE STYLES
+   =========================================== */
+
+.add-recommendation-page {
+  @apply min-h-screen bg-dark-950 pt-20 pb-16;
+}
+
+.add-recommendation-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 max-w-2xl;
+}
+
+.add-recommendation-content {
+  @apply space-y-8 animate-fade-in;
+}
+
+.add-recommendation-header {
+  @apply text-center space-y-4;
+}
+
+.add-recommendation-title {
+  @apply text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary-400 via-accent-purple to-accent-pink bg-clip-text text-transparent;
+}
+
+/* Form */
+.add-recommendation-form {
+  @apply bg-dark-900 rounded-xl border border-dark-800 p-6
+         transition-all duration-300 hover:border-primary-700 hover:shadow-glow-sm space-y-6;
+}
+
+.add-recommendation-field {
+  @apply space-y-2;
+}
+
+.add-recommendation-label {
+  @apply block text-sm font-medium text-dark-300;
+}
+
+.add-recommendation-input {
+  @apply w-full px-4 py-3 bg-dark-900 text-dark-50 border border-dark-700 rounded-lg
+         transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+         placeholder:text-dark-500;
+}
+
+/* File Upload */
+.add-recommendation-upload {
+  @apply space-y-2;
+}
+
+.add-recommendation-upload-input {
+  @apply w-full px-4 py-3 bg-dark-900 text-dark-50 border border-dark-700 rounded-lg
+         transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+         placeholder:text-dark-500 cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0
+         file:text-sm file:font-medium file:bg-primary-900/30 file:text-primary-400
+         file:cursor-pointer hover:file:bg-primary-800/40;
+}
+
+.add-recommendation-file-info {
+  @apply text-sm text-primary-400;
+}
+
+/* Submit */
+.add-recommendation-submit {
+  @apply px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-lg
+         transition-all duration-300 hover:from-primary-500 hover:to-primary-600 hover:shadow-glow-md
+         hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500
+         focus:ring-offset-2 focus:ring-offset-dark-950 w-full;
+}

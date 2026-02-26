@@ -1,0 +1,156 @@
+/* ===========================================
+   HOME PAGE STYLES
+   =========================================== */
+
+/* Hero Section */
+.home-page {
+  @apply min-h-screen bg-dark-950 pt-20 pb-16;
+}
+
+.home-hero {
+  @apply grid lg:grid-cols-2 gap-12 items-center;
+}
+
+.home-content {
+  @apply space-y-6;
+}
+
+/* Greeting Badge */
+.home-badge {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-full
+         bg-primary-900/20 border border-primary-700/50 text-primary-400;
+}
+
+.home-badge-text {
+  @apply text-sm font-medium;
+}
+
+/* Main Heading */
+.home-heading-wrapper {
+  @apply space-y-3;
+}
+
+.home-title {
+  @apply text-5xl md:text-6xl lg:text-7xl font-bold text-dark-50;
+}
+
+.home-subtitle {
+  @apply text-2xl md:text-3xl text-dark-400;
+}
+
+.home-name {
+  @apply font-bold;
+}
+
+.home-role {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+}
+
+.home-role-text {
+  @apply text-dark-200;
+}
+
+/* Description */
+.home-description {
+  @apply text-lg text-dark-300 max-w-xl leading-relaxed;
+}
+
+/* CTA Buttons */
+.home-cta-wrapper {
+  @apply flex flex-wrap gap-4 pt-4;
+}
+
+.home-cta-primary {
+  @apply px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-lg
+         transition-all duration-300 hover:from-primary-500 hover:to-primary-600 hover:shadow-glow-md
+         hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500
+         focus:ring-offset-2 focus:ring-offset-dark-950 inline-flex items-center gap-2;
+}
+
+.home-cta-secondary {
+  @apply px-6 py-3 bg-dark-800 text-dark-50 font-semibold rounded-lg border border-dark-700
+         transition-all duration-300 hover:bg-dark-700 hover:border-primary-600 hover:text-primary-400
+         active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+         focus:ring-offset-dark-950 inline-flex items-center gap-2;
+}
+
+.home-cta-icon-hover {
+  @apply group-hover:translate-x-1 transition-transform;
+}
+
+/* Social Links */
+.home-social-wrapper {
+  @apply flex gap-4 pt-4;
+}
+
+/* Logo Section */
+.home-logo-wrapper {
+  @apply flex justify-center lg:justify-end;
+}
+
+.home-logo-container {
+  @apply relative;
+}
+
+.home-logo-glow {
+  @apply absolute -inset-4 bg-gradient-to-r from-primary-600 to-accent-purple
+         rounded-full opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-500;
+}
+
+.home-logo-inner {
+  @apply relative;
+}
+
+.home-logo-image {
+  @apply w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl
+         border-2 border-primary-700/50 shadow-glow-md hover:shadow-glow-lg
+         hover:scale-105 transition-all duration-500;
+}
+
+.home-logo-decoration-top {
+  @apply absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br
+         from-primary-500 to-accent-pink rounded-full opacity-20 blur-xl animate-pulse;
+}
+
+.home-logo-decoration-bottom {
+  @apply absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr
+         from-accent-purple to-primary-600 rounded-full opacity-20 blur-xl animate-pulse;
+}
+
+/* Technologies Section */
+.home-tech-section {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 pt-0;
+}
+
+.home-tech-title {
+  @apply text-center text-dark-500 text-sm font-semibold uppercase tracking-wider mb-8;
+}
+
+.home-tech-grid {
+  @apply flex flex-wrap justify-center gap-3 max-w-4xl mx-auto;
+}
+
+.home-tech-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+         bg-primary-900/30 text-primary-400 border border-primary-700/50
+         hover:bg-primary-800/40 hover:border-primary-600
+         hover:scale-110 transition-all duration-300 cursor-default;
+}
+
+/* Background Decorations */
+.home-bg-decorations {
+  @apply fixed inset-0 -z-10 overflow-hidden pointer-events-none;
+}
+
+.home-bg-decoration-1 {
+  @apply absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600/5 rounded-full blur-3xl;
+}
+
+.home-bg-decoration-2 {
+  @apply absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-purple/5 rounded-full blur-3xl;
+}
+
+/* Sparkles Icon */
+.sparkles-icon {
+  @apply w-4 h-4;
+}

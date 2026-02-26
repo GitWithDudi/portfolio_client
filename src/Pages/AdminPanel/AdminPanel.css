@@ -1,0 +1,49 @@
+/* ===========================================
+   ADMIN PANEL STYLES
+   =========================================== */
+
+.admin-panel-page {
+  @apply min-h-screen bg-dark-950 pt-20 pb-16;
+}
+
+.admin-panel-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 max-w-4xl;
+}
+
+.admin-panel-content {
+  @apply space-y-8 animate-fade-in;
+}
+
+.admin-panel-header {
+  @apply text-center space-y-4;
+}
+
+.admin-panel-title {
+  @apply text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary-400 via-accent-purple to-accent-pink bg-clip-text text-transparent;
+}
+
+.admin-panel-subtitle {
+  @apply text-dark-400 text-lg;
+}
+
+.admin-panel-grid {
+  @apply grid md:grid-cols-2 gap-6;
+}
+
+.admin-panel-card {
+  @apply bg-dark-900 rounded-xl border border-dark-800 p-6
+         transition-all duration-300 hover:border-primary-600 hover:shadow-glow-md hover:-translate-y-1
+         cursor-pointer flex flex-col items-center justify-center text-center py-12 gap-4;
+}
+
+.admin-panel-card-icon {
+  @apply text-5xl;
+}
+
+.admin-panel-card-title {
+  @apply text-xl font-bold text-dark-200;
+}
+
+.admin-panel-card-description {
+  @apply text-dark-400 text-sm;
+}

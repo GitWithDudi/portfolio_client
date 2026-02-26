@@ -1,0 +1,83 @@
+/* ===========================================
+   CONTACT PAGE STYLES
+   =========================================== */
+
+.contact-page {
+  @apply min-h-screen bg-dark-950 pt-20 pb-16;
+}
+
+.contact-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24
+         flex flex-col items-center justify-center text-center min-h-[70vh];
+}
+
+/* Heading */
+.contact-header {
+  @apply space-y-4 mb-12 animate-slide-up;
+}
+
+.contact-title {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+}
+
+.contact-subtitle {
+  @apply text-lg text-dark-400 max-w-2xl mx-auto;
+}
+
+/* Contact Cards Grid */
+.contact-cards {
+  @apply grid md:grid-cols-2 gap-6 w-full max-w-3xl animate-fade-in;
+}
+
+/* Contact Card */
+.contact-card {
+  @apply bg-dark-900 rounded-xl border border-dark-800 p-6
+         transition-all duration-300 hover:border-primary-600 hover:shadow-glow-md hover:-translate-y-1
+         cursor-pointer flex flex-col items-center gap-4 py-8;
+}
+
+.contact-card-icon {
+  @apply p-4 rounded-xl;
+}
+
+.contact-card-icon-email {
+  @apply bg-gradient-to-br from-primary-600 to-accent-purple;
+}
+
+.contact-card-icon-linkedin {
+  @apply bg-gradient-to-br from-blue-600 to-blue-700;
+}
+
+.contact-card-icon svg {
+  @apply text-white;
+}
+
+.contact-card-content {
+  text-align: center;
+}
+
+.contact-card-title {
+  @apply text-xl font-semibold text-dark-200 mb-2;
+}
+
+.contact-card-text-email {
+  @apply text-primary-400 font-medium;
+}
+
+.contact-card-text-linkedin {
+  @apply text-blue-400 font-medium;
+}
+
+/* Additional Info */
+.contact-info {
+  @apply mt-16 p-8 bg-dark-900/50 backdrop-blur-md border border-dark-800/50
+         rounded-2xl max-w-2xl animate-slide-up;
+}
+
+.contact-info-title {
+  @apply text-2xl font-bold text-dark-200 mb-4;
+}
+
+.contact-info-text {
+  @apply text-dark-400 leading-relaxed;
+}

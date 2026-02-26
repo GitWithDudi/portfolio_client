@@ -1,0 +1,110 @@
+/* ===========================================
+   ADD PROJECT PAGE STYLES
+   =========================================== */
+
+.add-project-page {
+  @apply min-h-screen bg-dark-950 pt-20 pb-16;
+}
+
+.add-project-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 max-w-2xl;
+}
+
+.add-project-content {
+  @apply space-y-8 animate-fade-in;
+}
+
+.add-project-header {
+  @apply text-center space-y-4;
+}
+
+.add-project-title {
+  @apply text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary-400 via-accent-purple to-accent-pink bg-clip-text text-transparent;
+}
+
+/* Form */
+.add-project-form {
+  @apply bg-dark-900 rounded-xl border border-dark-800 p-6
+         transition-all duration-300 hover:border-primary-700 hover:shadow-glow-sm space-y-6;
+}
+
+.add-project-field {
+  @apply space-y-2;
+}
+
+.add-project-label {
+  @apply block text-sm font-medium text-dark-300;
+}
+
+.add-project-input {
+  @apply w-full px-4 py-3 bg-dark-900 text-dark-50 border border-dark-700 rounded-lg
+         transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+         placeholder:text-dark-500;
+}
+
+.add-project-textarea {
+  @apply w-full px-4 py-3 bg-dark-900 text-dark-50 border border-dark-700 rounded-lg
+         transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+         placeholder:text-dark-500 resize-none min-h-[120px];
+}
+
+/* Technologies */
+.add-project-tech-section {
+  @apply space-y-3;
+}
+
+.add-project-tech-grid {
+  @apply flex flex-wrap gap-2;
+}
+
+.add-project-tech-checkbox {
+  @apply hidden;
+}
+
+.add-project-tech-label {
+  @apply px-3 py-2 rounded-lg text-sm cursor-pointer transition-all duration-300
+         border border-dark-700 text-dark-400 hover:border-primary-600 hover:text-primary-400;
+}
+
+.add-project-tech-label-selected {
+  @apply bg-primary-900/30 border-primary-600 text-primary-400;
+}
+
+/* Upload */
+.add-project-upload {
+  @apply space-y-4;
+}
+
+.add-project-upload-input {
+  @apply w-full px-4 py-3 bg-dark-900 text-dark-50 border border-dark-700 rounded-lg
+         transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+         placeholder:text-dark-500 cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0
+         file:text-sm file:font-medium file:bg-primary-900/30 file:text-primary-400
+         file:cursor-pointer hover:file:bg-primary-800/40;
+}
+
+.add-project-upload-button {
+  @apply px-6 py-3 bg-dark-800 text-dark-50 font-semibold rounded-lg border border-dark-700
+         transition-all duration-300 hover:bg-dark-700 hover:border-primary-600 hover:text-primary-400
+         active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-dark-950;
+}
+
+.add-project-upload-preview {
+  @apply space-y-2;
+}
+
+.add-project-upload-preview-label {
+  @apply text-sm text-dark-400;
+}
+
+.add-project-upload-preview-image {
+  @apply max-w-[200px] rounded-lg border border-dark-700;
+}
+
+/* Submit */
+.add-project-submit {
+  @apply px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-lg
+         transition-all duration-300 hover:from-primary-500 hover:to-primary-600 hover:shadow-glow-md
+         hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500
+         focus:ring-offset-2 focus:ring-offset-dark-950 w-full;
+}

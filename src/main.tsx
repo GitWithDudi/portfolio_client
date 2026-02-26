@@ -11,7 +11,7 @@ import { AddProject } from './Pages/AddProject/AddProject.tsx';
 import { AdminPanel } from './Pages/AdminPanel/AdminPanel.tsx';
 import { Contact } from './Pages/Contact/Contact.tsx';
 import { Layout } from './Components/Layout_area/Layout/Layout.tsx';
-import './index.css';
+import './styles/global.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ProtectedRoute } from './securityPages';
 

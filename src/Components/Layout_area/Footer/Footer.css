@@ -1,0 +1,87 @@
+/* ===========================================
+   FOOTER STYLES
+   =========================================== */
+
+.footer {
+  @apply bg-dark-900 border-t border-dark-800;
+}
+
+.footer-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+}
+
+.footer-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+/* Brand Section */
+.footer-brand {
+  @apply space-y-4;
+}
+
+.footer-brand-logo {
+  @apply flex items-center gap-3;
+}
+
+.footer-brand-image {
+  @apply w-10 h-10 rounded-lg border border-primary-700/50;
+}
+
+.footer-brand-name {
+  @apply text-lg font-bold bg-gradient-to-r from-primary-400 via-accent-purple to-accent-pink bg-clip-text text-transparent;
+}
+
+.footer-brand-description {
+  @apply text-dark-400 text-sm max-w-xs;
+}
+
+/* Quick Links */
+.footer-links {
+  @apply space-y-4;
+}
+
+.footer-links-title {
+  @apply text-dark-200 font-semibold text-sm uppercase tracking-wider;
+}
+
+.footer-links-nav {
+  @apply flex flex-col gap-2;
+}
+
+.footer-link {
+  @apply text-dark-400 hover:text-primary-400 transition-colors duration-300 text-sm;
+}
+
+/* Social Links */
+.footer-social {
+  @apply space-y-4;
+}
+
+.footer-social-title {
+  @apply text-dark-200 font-semibold text-sm uppercase tracking-wider;
+}
+
+.footer-social-icons {
+  @apply flex gap-3;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  @apply mt-8 pt-8 border-t border-dark-800;
+}
+
+.footer-bottom-inner {
+  @apply flex flex-col md:flex-row justify-between items-center gap-4;
+}
+
+.footer-copyright {
+  @apply text-dark-500 text-sm;
+}
+
+.footer-tech {
+  @apply text-dark-500 text-sm;
+}
+
+.footer-tech-highlight {
+  @apply text-primary-400;
+}

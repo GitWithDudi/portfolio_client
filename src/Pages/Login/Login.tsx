@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { BASE_URL } from "../../Config";
-
+import "./Login.css";
 
 export function Login(): React.JSX.Element {
   const navigate = useNavigate();
@@ -27,27 +27,45 @@ export function Login(): React.JSX.Element {
       // נווט לפאנל המנהל
       navigate("/admin-panel");
     } catch (err) {
-      setError("Invalid username or password" );
-
-
+      setError("Invalid username or password");
     }
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input type="text" id="username" name="username" required />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" required />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className="login-page">
+      <div className="login-container">
+        <h2 className="login-title">Login</h2>
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="login-field">
+            <label htmlFor="username" className="login-label">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              className="login-input"
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+
+          <div className="login-field">
+            <label htmlFor="password" className="login-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className="login-input"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <button type="submit" className="login-button">
+            Login
+          </button>
+        </form>
+        {error && <p className="login-error">{error}</p>}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,103 @@
+/* ===========================================
+   PROJECTS PAGE STYLES
+   =========================================== */
+
+.projects-page {
+  @apply min-h-screen bg-dark-950 pt-20 pb-16;
+}
+
+/* Loading State */
+.projects-loading {
+  @apply min-h-screen bg-dark-950 pt-20 pb-16 flex items-center justify-center;
+}
+
+.projects-loading-content {
+  @apply text-center space-y-4;
+}
+
+.projects-loading-text {
+  @apply text-dark-400 text-lg;
+}
+
+/* Error State */
+.projects-error {
+  @apply min-h-screen bg-dark-950 pt-20 pb-16 flex items-center justify-center;
+}
+
+.projects-error-icon {
+  @apply text-red-500 text-5xl;
+}
+
+.projects-error-title {
+  @apply text-2xl font-bold text-dark-200;
+}
+
+.projects-error-text {
+  @apply text-dark-400;
+}
+
+/* Header */
+.projects-header {
+  @apply mb-12 animate-slide-up;
+}
+
+.projects-title {
+  @apply text-4xl md:text-5xl font-bold mb-4;
+}
+
+.projects-subtitle {
+  @apply text-dark-400 text-lg max-w-2xl;
+}
+
+/* Filter Section */
+.projects-filter {
+  @apply mb-8 animate-fade-in;
+}
+
+.projects-filter-wrapper {
+  @apply flex flex-wrap items-center gap-4;
+}
+
+.projects-filter-label {
+  @apply text-dark-300 font-medium;
+}
+
+.projects-filter-select {
+  @apply w-full px-4 py-3 bg-dark-900 text-dark-50 border border-dark-700 rounded-lg
+         transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+         placeholder:text-dark-500 max-w-xs cursor-pointer;
+}
+
+.projects-filter-clear {
+  @apply px-6 py-3 text-dark-300 font-semibold rounded-lg
+         transition-all duration-300 hover:bg-dark-800 hover:text-primary-400
+         active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+         focus:ring-offset-dark-950 text-sm;
+}
+
+/* Empty State */
+.projects-empty {
+  @apply text-center py-16 animate-fade-in;
+}
+
+.projects-empty-icon {
+  @apply text-6xl mb-4;
+}
+
+.projects-empty-title {
+  @apply text-2xl font-bold text-dark-300 mb-2;
+}
+
+.projects-empty-text {
+  @apply text-dark-500;
+}
+
+/* Grid */
+.projects-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in;
+}
+
+/* Count */
+.projects-count {
+  @apply mt-12 text-center text-dark-500 text-sm;
+}

@@ -1,96 +1,9 @@
-
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-// import { Iproject } from "../../Types/Interfaces";
-// import { ProjectsCard } from "../../Components/Project/Projects_card";
-
-// export function Projects(): React.JSX.Element {
-//   const [projects, setProjects] = useState<Iproject[]>([]);
-//   const [selectedTech, setSelectedTech] = useState("All");
-//   const [allTechnologies, setAllTechnologies] = useState<string[]>([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState<string | null>(null);
-
-//   useEffect(() => {
-//     axios
-//       .get("http://localhost:5000/projects")
-//       .then((response) => {
-//         setProjects(response.data);
-//         setLoading(false);
-
-//         const techs = Array.from(
-//           new Set(
-//             response.data.flatMap((project: Iproject) => project.technologies || []) as string[]
-//           )
-//         );
-//         setAllTechnologies(techs);
-//       })
-//       .catch((error) => {
-//         console.error("Error fetching projects:", error);
-//         setError("Failed to load recommendations");
-//         setLoading(false);
-//       });
-//   }, []);
-
-//   const handleTechChange = (tech: string) => {
-//     setSelectedTech(tech);
-
-//     if (tech === "All") {
-//       axios
-//         .get("http://localhost:5000/projects")
-//         .then((response) => setProjects(response.data))
-//         .catch((error) => console.error("Error fetching all projects:", error));
-//     } else {
-//       axios
-//         .get(`http://localhost:5000/projects/tech/${tech}`)
-//         .then((response) => setProjects(response.data))
-//         .catch((error) => console.error("Error fetching projects by tech:", error));
-//     }
-//   };
-//   if (loading) return <div>Loading projecs...</div>;
-//   if (error) return <div>{error}</div>;
-
-
-//   return (
-//     <div>
-//       <h1>My Projects</h1>
-
-//       <label htmlFor="tech-select">Filter by technology:</label>
-//       <select
-//         id="tech-select"
-//         value={selectedTech}
-//         onChange={(e) => handleTechChange(e.target.value)}
-//       >
-//         <option value="All">All</option>
-//         {allTechnologies.map((tech) => (
-//           <option key={tech} value={tech}>
-//             {tech}
-//           </option>
-//         ))}
-//       </select>
-
-//       {projects.map((project) => (
-//         <ProjectsCard key={project.id} project={project} />
-//       ))}
-//     </div>
-//   );
-// }
-
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Iproject } from "../../Types/Interfaces";
 import { ProjectsCard } from "../../Components/Project/Projects_card";
 import { BASE_URL } from "../../Config";
-import {
-  Grid,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Typography,
-  Box,
-} from "@mui/material";
+import "./Projects.css";
 
 export function Projects(): React.JSX.Element {
   const [projects, setProjects] = useState<Iproject[]>([]);
@@ -137,39 +50,99 @@ export function Projects(): React.JSX.Element {
       });
   };
 
-  if (loading) return <div>Loading projects...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading) {
+    return (
+      <div className="projects-loading">
+        <div className="projects-loading-content">
+          <div className="loading-spinner"></div>
+          <p className="projects-loading-text">Loading projects...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="projects-error">
+        <div className="error-container">
+          <div className="projects-error-icon">⚠️</div>
+          <h2 className="projects-error-title">Oops!</h2>
+          <p className="projects-error-text">{error}</p>
+          <button onClick={() => window.location.reload()} className="btn-primary">
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <Box sx={{ padding: 4, paddingTop: "80px", paddingBottom: "80px" }}>
-      <Typography variant="h4" gutterBottom>
-        My Projects
-      </Typography>
+    <div className="projects-page">
+      <div className="section-container">
+        {/* Header */}
+        <div className="projects-header">
+          <h1 className="projects-title">
+            My <span className="gradient-text">Projects</span>
+          </h1>
+          <p className="projects-subtitle">
+            Explore my portfolio of web applications, showcasing full-stack development
+            with modern technologies and best practices.
+          </p>
+        </div>
 
-      <FormControl sx={{ minWidth: 200, mb: 4 }}>
-        <InputLabel id="tech-select-label">Filter by Technology</InputLabel>
-        <Select
-          labelId="tech-select-label"
-          value={selectedTech}
-          label="Filter by Technology"
-          onChange={(e) => handleTechChange(e.target.value)}
-        >
-          <MenuItem value="All">All</MenuItem>
-          {allTechnologies.map((tech) => (
-            <MenuItem key={tech} value={tech}>
-              {tech}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+        {/* Filter Section */}
+        <div className="projects-filter" style={{ animationDelay: '200ms' }}>
+          <div className="projects-filter-wrapper">
+            <label htmlFor="tech-select" className="projects-filter-label">
+              Filter by Technology:
+            </label>
+            <select
+              id="tech-select"
+              value={selectedTech}
+              onChange={(e) => handleTechChange(e.target.value)}
+              className="projects-filter-select"
+            >
+              <option value="All">All Technologies</option>
+              {allTechnologies.map((tech) => (
+                <option key={tech} value={tech}>
+                  {tech}
+                </option>
+              ))}
+            </select>
 
-      <Grid container spacing={3}>
-        {projects.map((project: Iproject) => (
-          <Grid  key={project.id}>
-            <ProjectsCard project={project} />
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+            {selectedTech !== "All" && (
+              <button onClick={() => handleTechChange("All")} className="projects-filter-clear">
+                Clear Filter ✕
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Projects Grid */}
+        {projects.length === 0 ? (
+          <div className="projects-empty">
+            <div className="projects-empty-icon">🔍</div>
+            <h3 className="projects-empty-title">No Projects Found</h3>
+            <p className="projects-empty-text">
+              {selectedTech !== "All"
+                ? `No projects found using ${selectedTech}. Try selecting a different technology.`
+                : "No projects available at the moment."}
+            </p>
+          </div>
+        ) : (
+          <div className="projects-grid" style={{ animationDelay: '400ms' }}>
+            {projects.map((project: Iproject) => (
+              <ProjectsCard key={project.id} project={project} />
+            ))}
+          </div>
+        )}
+
+        {/* Project Count */}
+        <div className="projects-count">
+          Showing {projects.length} {projects.length === 1 ? 'project' : 'projects'}
+          {selectedTech !== "All" && ` with ${selectedTech}`}
+        </div>
+      </div>
+    </div>
   );
 }

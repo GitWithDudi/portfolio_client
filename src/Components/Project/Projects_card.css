@@ -1,0 +1,55 @@
+/* ===========================================
+   PROJECT CARD STYLES
+   =========================================== */
+
+.project-card {
+  @apply bg-dark-900 rounded-xl border border-dark-800 p-6
+         transition-all duration-300 hover:border-primary-600 hover:shadow-glow-md hover:-translate-y-1
+         cursor-pointer block w-full max-w-sm h-80;
+}
+
+/* Image */
+.project-card-image-wrapper {
+  @apply relative h-36 mb-4 overflow-hidden rounded-lg;
+}
+
+.project-card-image {
+  @apply w-full h-full object-cover transition-transform duration-500 group-hover:scale-110;
+}
+
+.project-card-image-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-60;
+}
+
+/* Content */
+.project-card-content {
+  @apply space-y-3;
+}
+
+/* Title */
+.project-card-title {
+  @apply text-xl font-bold text-dark-50 group-hover:text-primary-400
+         transition-colors duration-300 line-clamp-1;
+}
+
+/* Purpose */
+.project-card-purpose {
+  @apply text-sm text-dark-400 line-clamp-2;
+}
+
+.project-card-purpose-label {
+  @apply font-semibold text-dark-300;
+}
+
+/* Technologies */
+.project-card-technologies {
+  @apply flex flex-wrap gap-1.5;
+}
+
+.project-card-tech-badge {
+  @apply px-2 py-1 text-xs rounded-md bg-primary-900/20 text-primary-400 border border-primary-800/50;
+}
+
+.project-card-tech-more {
+  @apply px-2 py-1 text-xs rounded-md bg-dark-800 text-dark-400;
+}
