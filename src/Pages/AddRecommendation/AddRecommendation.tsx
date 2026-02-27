@@ -4,7 +4,7 @@ import axios from "axios";
 import { BASE_URL } from "../../Config";
 import "./AddRecommendation.css";
 
-export function AddRecommendation() {
+export function AddRecommendation(): React.JSX.Element {
   const [formData, setFormData] = useState({
     name: "",
     role: "",

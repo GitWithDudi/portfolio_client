@@ -8,14 +8,8 @@ export function ProtectedRoute({ children }: ProtectedRouteProps): React.JSX.Ele
 
 
     if (!token) {
-        <div> 
-            <h2>Access Denied</h2>
-            <p>You must be logged in to view this page.</p>
-            <p>Please log in to continue.</p>
-        </div>
-        
         return <Navigate to="/login" replace />;
-      }
+    }
     
 
     return children;

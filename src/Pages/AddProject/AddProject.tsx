@@ -173,6 +173,7 @@ export function AddProject(): React.JSX.Element {
               <label className="add-project-label">Project Image</label>
               <input
                 type="file"
+                accept="image/*"
                 onChange={handleFileChange}
                 className="add-project-upload-input"
               />

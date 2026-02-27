@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./About.css";
 
-export function About() {
+export function About(): React.JSX.Element {
   return (
     <div className="about-page">
       <div className="about-container about-rtl">
