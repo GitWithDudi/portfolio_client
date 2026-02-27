@@ -94,7 +94,7 @@ export function Recommendations(): React.JSX.Element {
 
                   {/* Date */}
                   <p className="recommendation-date">
-                    {new Date(rec.recommendation_date).toLocaleDateString('en-US', {
+                    {new Date(rec.recommendation_date!).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric'
