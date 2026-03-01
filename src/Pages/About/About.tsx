@@ -4,7 +4,7 @@ import "./About.css";
 export function About(): React.JSX.Element {
   return (
     <div className="about-page">
-      <div className="about-container about-rtl">
+      <div className="about-container">
         <div className="about-content">
           {/* Header */}
           <div className="about-header">
@@ -16,33 +16,29 @@ export function About(): React.JSX.Element {
           {/* Bio Section */}
           <div className="about-bio">
             <p className="about-bio-text">
-              אני מפתח Full Stack עם גישה יסודית וממוקדת בבניית מערכות יציבות, מודולריות וקלות לתחזוקה. אני שם דגש על הבנת התמונה הרחבה בפרויקט — הן בצד הלקוח והן בצד השרת — ומוודא שכל רכיב בקוד משרת מטרה ברורה.
+              I am a Full Stack Developer with a structured and detail-oriented approach to building stable, modular, and maintainable systems.
+              I focus on understanding the broader architecture — from backend APIs to user experience — ensuring every component serves a clear purpose without adding unnecessary complexity.
             </p>
-
             <p className="about-bio-text">
-              אני מודע לכך שהפתרון הטוב ביותר אינו תמיד המורכב ביותר, ולא פחות חשוב מזה — לדעת מתי להשאיר דברים פשוטים ולהימנע מסיבוכים מיותרים.
+              I believe good engineering is not about over-engineering, but about finding the right balance between simplicity, performance, and long-term maintainability.
             </p>
-
             <p className="about-bio-text">
-              במהלך הלמידה והעבודה על פרויקטים מעשיים, נחשפתי למגוון טכנולוגיות וכלים מעבר למה שנמצא בשימוש העיקרי שלי. אני שואף כל הזמן להרחיב את הידע שלי, ולומד במהירות כל כלי או טכנולוגיה שנדרשים לטובת הפרויקט. אני רואה בלמידה מתמשכת חלק בלתי נפרד מהמקצוע, ומוכן להשתלם בכל טכנולוגיה שתידרש על מנת לספק פתרון איכותי ורלוונטי.
-            </p>
-
-            <p className="about-bio-text">
-              במהלך הדרך פיתחתי הבנה עמוקה בתכנון צד השרת — בניית API, עבודה עם מסדי נתונים, אבטחה וביצועים, ותיאום מדויק בין השרת לפרונטאנד. עם זאת, אני שומר על מודעות מלאה לחשיבות שווה של צד הלקוח והחוויה שהוא מספק.
+              Through hands-on projects, I have developed strong backend capabilities, including API design, database architecture, security considerations, and performance optimization — while maintaining clear alignment with the frontend.
+              I approach development not just as writing code, but as delivering solutions that address real technical and business needs, I view continuous learning as an essential and inseparable part of the profession.
             </p>
           </div>
 
           {/* Skills Section */}
           <div className="about-skills-section">
-            <h3 className="about-skills-title gradient-text">טכנולוגיות וכלים</h3>
+            <h3 className="about-skills-title gradient-text">Technologies & Tools</h3>
 
             {/* Frontend */}
             <div className="about-skills-category">
               <h4 className="about-skills-title">Frontend</h4>
               <ul className="about-skills-list">
-                <li className="about-skills-item"><span dir="ltr">React עם TypeScript ו־Vite</span></li>
-                <li className="about-skills-item"><span dir="ltr">Material-UI ו־CSS מודולרי לבניית רכיבים נקיים</span></li>
-                <li className="about-skills-item"><span dir="ltr">Axios ו־React Router לניהול תקשורת עם ה־API</span></li>
+                <li className="about-skills-item">React with TypeScript and Vite</li>
+                <li className="about-skills-item">Tailwind CSS and Material UI for clean, modular components</li>
+                <li className="about-skills-item">Axios and React Router for API communication and routing</li>
               </ul>
             </div>
 
@@ -50,30 +46,31 @@ export function About(): React.JSX.Element {
             <div className="about-skills-category">
               <h4 className="about-skills-title">Backend</h4>
               <ul className="about-skills-list">
-                <li className="about-skills-item"><span dir="ltr">Python ו־Flask לבניית API RESTful</span></li>
-                <li className="about-skills-item"><span dir="ltr">מסדי נתונים כגון MySQL ו־PostgreSQL בסביבת Neon</span></li>
-                <li className="about-skills-item"><span dir="ltr">Postman לצורכי בדיקות ותיעוד API</span></li>
+                <li className="about-skills-item">Python and Flask for RESTful API development</li>
+                <li className="about-skills-item">MySQL and PostgreSQL (Neon)</li>
+                <li className="about-skills-item">JWT for authentication and secure API access</li>
+                <li className="about-skills-item">Postman for API testing and documentation</li>
               </ul>
             </div>
 
             {/* Tools */}
             <div className="about-skills-category">
-              <h4 className="about-skills-title">כלים ותשתיות</h4>
+              <h4 className="about-skills-title">Tools & Infrastructure</h4>
               <ul className="about-skills-list">
-                <li className="about-skills-item"><span dir="ltr">Git ו־GitHub לניהול קוד וגרסאות</span></li>
-                <li className="about-skills-item"><span dir="ltr">Docker לסביבת פיתוח מבודדת</span></li>
+                <li className="about-skills-item">Git and GitHub for version control</li>
+                <li className="about-skills-item">Docker for containerized development environments</li>
               </ul>
             </div>
           </div>
 
           {/* Philosophy Section */}
           <div className="about-philosophy">
-            <h3 className="about-philosophy-title">הפילוסופיה שלי</h3>
+            <h3 className="about-philosophy-title">My Philosophy</h3>
             <p className="about-philosophy-text">
-              אני שואף לבנות פתרונות ברורים, יציבים ותחזוקתיים, שמאפשרים עבודה יעילה לאורך זמן.
+              I aim to build clear, reliable, and maintainable systems that can scale and evolve over time.
             </p>
             <p className="about-philosophy-text">
-              אם אתם מחפשים מפתח עם חשיבה רחבה על הפיתוח הטכני, אשמח לשוחח.
+              If you are looking for a developer with a system-level perspective, strong backend foundations, and a commitment to continuous growth — I would be glad to connect.
             </p>
           </div>
 

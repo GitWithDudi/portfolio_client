@@ -8,7 +8,7 @@
 }
 
 .home-hero {
-  @apply grid lg:grid-cols-2 gap-12 items-center;
+  @apply grid lg:grid-cols-2 gap-6 items-center;
 }
 
 .home-content {
@@ -85,7 +85,7 @@
 
 /* Logo Section */
 .home-logo-wrapper {
-  @apply flex justify-center lg:justify-end;
+  @apply flex justify-center;
 }
 
 .home-logo-container {
@@ -102,19 +102,19 @@
 }
 
 .home-logo-image {
-  @apply w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl
+  @apply w-52 h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover object-top rounded-2xl
          border-2 border-primary-700/50 shadow-glow-md hover:shadow-glow-lg
          hover:scale-105 transition-all duration-500;
 }
 
 .home-logo-decoration-top {
   @apply absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br
-         from-primary-500 to-accent-pink rounded-full opacity-20 blur-xl animate-pulse;
+         from-primary-500 to-accent-pink rounded-full opacity-5 blur-xl animate-pulse;
 }
 
 .home-logo-decoration-bottom {
   @apply absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr
-         from-accent-purple to-primary-600 rounded-full opacity-20 blur-xl animate-pulse;
+         from-accent-purple to-primary-600 rounded-full opacity-5 blur-xl animate-pulse;
 }
 
 /* Technologies Section */
@@ -152,13 +152,13 @@
 
 /* Logo Badge Overlay */
 .home-logo-badge {
-  @apply absolute -bottom-4 -right-4
-         w-16 h-16 md:w-20 md:h-20
+  @apply absolute -bottom-4 -left-4
+         w-20 h-20 md:w-28 md:h-28
          rounded-full border-2 border-primary-700/60
          bg-dark-900 shadow-glow-md
          overflow-hidden
-         transition-transform duration-300
-         group-hover:scale-110;
+         transition-transform duration-500
+         group-hover:scale-105;
 }
 
 .home-logo-badge-img {

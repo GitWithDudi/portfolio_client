@@ -7,7 +7,7 @@
 }
 
 .about-container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 max-w-4xl;
+  @apply  mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 max-w-4xl;
 }
 
 .about-content {
@@ -91,8 +91,3 @@
          focus:ring-offset-2 focus:ring-offset-dark-950 inline-flex items-center gap-2;
 }
 
-/* RTL Support */
-.about-rtl {
-  direction: rtl;
-  text-align: right;
-}
