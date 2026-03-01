@@ -11,6 +11,22 @@
          flex flex-col items-center justify-center text-center min-h-[70vh];
 }
 
+/* Profile Image */
+.contact-profile-wrapper {
+  @apply relative mb-6 animate-fade-in;
+}
+
+.contact-profile-glow {
+  @apply absolute -inset-2 bg-gradient-to-r from-primary-600 to-accent-purple
+         rounded-full opacity-20 blur-xl;
+}
+
+.contact-profile-img {
+  @apply relative w-28 h-28 md:w-36 md:h-36 rounded-full object-cover
+         border-2 border-primary-700/50 shadow-glow-md
+         hover:scale-105 hover:shadow-glow-lg transition-all duration-500;
+}
+
 /* Heading */
 .contact-header {
   @apply space-y-4 mb-12 animate-slide-up;

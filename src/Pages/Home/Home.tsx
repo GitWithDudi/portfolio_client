@@ -86,20 +86,29 @@ export function Home(): React.JSX.Element {
             </div>
           </div>
 
-          {/* Right Content - Logo */}
+          {/* Right Content - Profile Image */}
           <div className={`home-logo-wrapper ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
                style={{ animationDelay: '200ms' }}>
             <div className="home-logo-container group">
               {/* Glow effect background */}
               <div className="home-logo-glow"></div>
 
-              {/* Logo */}
+              {/* Profile Image */}
               <div className="home-logo-inner">
                 <img
-                  src="/images/logo_1.webp"
-                  alt="David's Portfolio Logo"
+                  src="/images/portfolio_image.png"
+                  alt="David Cohen"
                   className="home-logo-image"
                 />
+
+                {/* Logo badge overlay */}
+                <div className="home-logo-badge">
+                  <img
+                    src="/images/logo_1.webp"
+                    alt="DaviDev Logo"
+                    className="home-logo-badge-img"
+                  />
+                </div>
 
                 {/* Decorative elements */}
                 <div className="home-logo-decoration-top"></div>

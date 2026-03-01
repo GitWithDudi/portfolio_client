@@ -150,6 +150,21 @@
   @apply absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-purple/5 rounded-full blur-3xl;
 }
 
+/* Logo Badge Overlay */
+.home-logo-badge {
+  @apply absolute -bottom-4 -right-4
+         w-16 h-16 md:w-20 md:h-20
+         rounded-full border-2 border-primary-700/60
+         bg-dark-900 shadow-glow-md
+         overflow-hidden
+         transition-transform duration-300
+         group-hover:scale-110;
+}
+
+.home-logo-badge-img {
+  @apply w-full h-full object-cover;
+}
+
 /* Sparkles Icon */
 .sparkles-icon {
   @apply w-4 h-4;

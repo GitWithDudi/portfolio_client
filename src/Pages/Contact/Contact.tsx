@@ -5,6 +5,16 @@ export function Contact(): React.JSX.Element {
   return (
     <div className="contact-page">
       <div className="contact-container">
+        {/* Profile Image */}
+        <div className="contact-profile-wrapper">
+          <div className="contact-profile-glow"></div>
+          <img
+            src="/images/portfolio_image.png"
+            alt="David Cohen"
+            className="contact-profile-img"
+          />
+        </div>
+
         {/* Heading */}
         <div className="contact-header">
           <h1 className="contact-title">
