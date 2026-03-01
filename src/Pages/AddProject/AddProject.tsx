@@ -21,6 +21,7 @@ export function AddProject(): React.JSX.Element {
 
   const [techList, setTechList] = useState<Itechnology[]>([]);
   const [file, setFile] = useState<File | null>(null);
+  const [uploadStatus, setUploadStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const navigate = useNavigate();
 
@@ -68,13 +69,16 @@ export function AddProject(): React.JSX.Element {
     const formData = new FormData();
     formData.append("file", file);
 
+    setUploadStatus("loading");
     try {
       const res = await axios.post(`${BASE_URL}/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setProject((prev) => ({ ...prev, image_filename: res.data.url }));
+      setUploadStatus("success");
     } catch (err) {
       console.error("Upload failed:", err);
+      setUploadStatus("error");
     }
   };
 
@@ -180,10 +184,17 @@ export function AddProject(): React.JSX.Element {
               <button
                 type="button"
                 onClick={handleFileUpload}
+                disabled={!file || uploadStatus === "loading"}
                 className="add-project-upload-button"
               >
-                Upload Image
+                {uploadStatus === "loading" ? "Uploading..." : "Upload Image"}
               </button>
+              {uploadStatus === "success" && (
+                <p className="text-green-500 text-sm mt-1">Image uploaded successfully!</p>
+              )}
+              {uploadStatus === "error" && (
+                <p className="text-red-500 text-sm mt-1">Upload failed. Please try again.</p>
+              )}
               {project.image_filename && (
                 <div className="add-project-upload-preview">
                   <p className="add-project-upload-preview-label">Uploaded Image:</p>
