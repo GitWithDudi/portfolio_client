@@ -9,6 +9,8 @@ import { ProjectDetails } from './Pages/Project_details/Project_details.tsx';
 import { Login } from './Pages/Login/Login.tsx';
 import { AddProject } from './Pages/AddProject/AddProject.tsx';
 import { AdminPanel } from './Pages/AdminPanel/AdminPanel.tsx';
+import { DeleteProject } from './Pages/DeleteProject/DeleteProject.tsx';
+import { DeleteRecommendation } from './Pages/DeleteRecommendation/DeleteRecommendation.tsx';
 import { Contact } from './Pages/Contact/Contact.tsx';
 import { Layout } from './Components/Layout_area/Layout/Layout.tsx';
 import './styles/global.css';
@@ -45,6 +47,22 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <AddRecommendation />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/delete-project',
+        element: (
+          <ProtectedRoute>
+            <DeleteProject />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/delete-recommendation',
+        element: (
+          <ProtectedRoute>
+            <DeleteRecommendation />
           </ProtectedRoute>
         ),
       },

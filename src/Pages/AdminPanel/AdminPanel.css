@@ -7,7 +7,7 @@
 }
 
 .admin-panel-container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 max-w-4xl;
+  @apply  mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 max-w-4xl;
 }
 
 .admin-panel-content {
@@ -46,4 +46,8 @@
 
 .admin-panel-card-description {
   @apply text-dark-400 text-sm;
+}
+
+.admin-panel-card-danger {
+  @apply hover:border-red-700 hover:shadow-[0_0_20px_rgba(185,28,28,0.2)];
 }

@@ -31,6 +31,22 @@ export function AdminPanel(): React.JSX.Element {
                 Upload a recommendation from a colleague or client
               </p>
             </Link>
+
+            <Link to="/delete-project" className="admin-panel-card admin-panel-card-danger">
+              <span className="admin-panel-card-icon">🗑️</span>
+              <h2 className="admin-panel-card-title">Delete Project</h2>
+              <p className="admin-panel-card-description">
+                Remove an existing project from your portfolio
+              </p>
+            </Link>
+
+            <Link to="/delete-recommendation" className="admin-panel-card admin-panel-card-danger">
+              <span className="admin-panel-card-icon">🗑️</span>
+              <h2 className="admin-panel-card-title">Delete Recommendation</h2>
+              <p className="admin-panel-card-description">
+                Remove an existing recommendation from your portfolio
+              </p>
+            </Link>
           </div>
         </div>
       </div>

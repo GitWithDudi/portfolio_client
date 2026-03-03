@@ -40,7 +40,11 @@ export function AddRecommendation(): React.JSX.Element {
     }
 
     try {
-      await axios.post(`${BASE_URL}/recommendations`, data);
+      await axios.post(`${BASE_URL}/recommendations`, data, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       alert("Recommendation uploaded successfully!");
 
       setFormData({

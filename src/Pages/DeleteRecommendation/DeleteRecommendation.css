@@ -1,0 +1,91 @@
+/* ===========================================
+   DELETE RECOMMENDATION STYLES
+   =========================================== */
+
+.delete-reco-page {
+  @apply min-h-screen bg-dark-950 pt-20 pb-16;
+}
+
+.delete-reco-container {
+  @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+}
+
+.delete-reco-content {
+  @apply space-y-8 animate-fade-in;
+}
+
+.delete-reco-header {
+  @apply text-center space-y-4;
+}
+
+.delete-reco-title {
+  @apply text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary-400 via-accent-purple to-accent-pink bg-clip-text text-transparent;
+}
+
+.delete-reco-subtitle {
+  @apply text-dark-400 text-lg;
+}
+
+.delete-reco-loading {
+  @apply flex flex-col items-center justify-center min-h-screen gap-4;
+}
+
+.delete-reco-loading-text {
+  @apply text-dark-400;
+}
+
+.delete-reco-error {
+  @apply flex flex-col items-center justify-center min-h-screen gap-4 text-red-400;
+}
+
+.delete-reco-empty {
+  @apply text-center text-dark-400 py-12;
+}
+
+.delete-reco-list {
+  @apply space-y-4;
+}
+
+.delete-reco-item {
+  @apply bg-dark-900 rounded-xl border border-dark-800 p-5
+         flex items-center justify-between gap-4
+         transition-all duration-200 hover:border-dark-700;
+}
+
+.delete-reco-item-info {
+  @apply flex flex-col gap-1 flex-1 min-w-0;
+}
+
+.delete-reco-item-name {
+  @apply text-dark-200 font-semibold truncate;
+}
+
+.delete-reco-item-meta {
+  @apply text-dark-500 text-sm truncate;
+}
+
+.delete-reco-btn {
+  @apply px-4 py-2 rounded-lg bg-red-900/40 border border-red-700/50
+         text-red-400 text-sm font-medium
+         transition-all duration-200 hover:bg-red-800/60 hover:border-red-600
+         shrink-0;
+}
+
+.delete-reco-confirm {
+  @apply flex items-center gap-2 shrink-0;
+}
+
+.delete-reco-confirm-text {
+  @apply text-dark-400 text-sm;
+}
+
+.delete-reco-confirm-yes {
+  @apply px-4 py-2 rounded-lg bg-red-700 text-white text-sm font-medium
+         transition-all duration-200 hover:bg-red-600
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.delete-reco-confirm-no {
+  @apply px-4 py-2 rounded-lg bg-dark-800 text-dark-300 text-sm font-medium
+         transition-all duration-200 hover:bg-dark-700;
+}
